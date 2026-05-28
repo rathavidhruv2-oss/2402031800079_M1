@@ -1,0 +1,22 @@
+.ONE{
+    height: 100px;
+    background-color: lightblue;        border: 2px solid black;
+    height: 100px;
+    width:100px;
+    position: absolute;
+     top:50px;
+    /* left: 50px; */ 
+    float:right;
+}
+.TWO{
+    position: relative;
+     top:90px;
+    left: 90px;
+}
+.THREE{
+    position: fixed;
+    top:50px;
+    left: 50px;
+    float:left ;
+}
+
