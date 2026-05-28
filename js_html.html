@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+</head>
+<body>
+    <label for="check">Enter Number for odd even :</label>
+    <input type="text" class="inp" id="check">
+
+    <label for="check">Enter Number :</label>
+    <input type="text" class="inp" id="check">
+
+    <label for="check">Enter Number:</label>
+    <input type="text" class="inp" id="check">
+
+    <label for="check">Enter Number:</label>
+    <input type="text" class="inp" id="check">
+
+    <label for="check">Enter Number:</label>
+    <input type="text" class="inp" id="check">
+    <button onclick="first()">submit</button>
+    <p id="demo">XXXXXXXXXXXX</p>
+   <script>
+        function first(){
+            var num =document.getElementById("check").value;
+            document.getElementById("demo").textContent = `${num % 2 == 0 ? "even" : "odd"}`;
+            
+            // alert("hello world");
+            // var x=10;
+            // var y=5;
+            // var z=x+y;
+            // var a=x*y;
+            // var b=x/y;
+            // var c=x-y;     
+            // var b={
+            //     name:"parthiv",
+            //     age:18,
+            //     city:"ahmedabad"
+            // }    
+            // var arr=["parthiv","rohit","virat","dhoni"];
+            // document.getElementById("demo").innerHTML=arr[0];
+            // var i=0;
+            // while(arr.length>i){
+            //     document.getElementById("demo").innerHTML+=`${arr[i]} <br>`;
+            //     i++;
+            // }
+
+            // document.getElementById("demo").innerHTML=`${b.name} is ${b.age} years old and lives in ${b.city}`; 
+            // document.getElementById("demo").innerHTML=`${x} + ${y} =${z} <br> ${x} * ${y} = ${a} <br> ${x} / ${y} = ${b} <br> ${x} - ${y} = ${c}`;
+        }
+    </script>
+</body>
+</html>
