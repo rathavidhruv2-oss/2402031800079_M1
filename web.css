@@ -1,0 +1,322 @@
+
+* {
+    box-sizing: border-box;
+    
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    z-index: 20;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header__banner {
+    background-image: url(https://static-assets-prod.fnp.com/assets/images/custom/freeshipping/desktop-free-delivery-7jan.png);
+    height: 6.25rem;
+    width: 100%;
+    background-attachment: scroll;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.header__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.header__logo-image {
+    width: auto;
+    height: auto;
+    max-height: 2.5rem; /* mobile default */
+    max-width: 100%;
+    display: block;
+}
+
+/* Responsive logo sizing */
+@media (min-width: 768px) {
+    .header__logo-image {
+        max-height: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header__logo-image {
+        max-height: 3.5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .header__logo-image {
+        max-height: 4rem;
+    }
+}
+
+.header__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.header__search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-width: 15rem;
+    max-width: 30rem;
+}
+
+.header__search-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #666666;
+}
+
+.header__search-label .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+.header__search-input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.header__search-input:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.header__search-input::placeholder {
+    color: #666666;
+}
+
+.header__nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #ffffff;
+}
+
+.header__nav-link {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+}
+
+.header__nav-link:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+.header__nav-link:active {
+    background-color: #f5f5f5;
+}
+
+
+.main-content {
+    margin-top: 12.5rem;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+/* Gallery image sizing */
+.gallery-image {
+    width: 100%;
+    height: auto;
+    max-width: 220px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+
+/* Tablet and above */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .header__content {
+        flex-wrap: nowrap;
+        padding: 1.5rem 3rem;
+    }
+
+    .header__search {
+        min-width: 20rem;
+        max-width: 35rem;
+    }
+
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Desktop and above */
+@media (min-width: 1024px) {
+    .header__content {
+        padding: 1.5rem 3rem;
+    }
+
+    .header__search {
+        min-width: 25rem;
+        max-width: 40rem;
+    }
+
+    .header__title {
+        font-size: 2rem;
+    }
+
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+    .main-content {
+        padding: 3rem 3rem;
+    }
+
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark mode overrides for inlined values */
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .header {
+        background-color: #1a1a1a;
+    }
+
+    .header__search-label {
+        color: #b0b0b0;
+    }
+
+    .header__search-input {
+        border-color: #404040;
+        background-color: #2d2d2d;
+        color: #ffffff;
+    }
+
+    .header__search-input::placeholder {
+        color: #b0b0b0;
+    }
+
+    .header__nav-link:hover {
+        background-color: #2d2d2d;
+    }
+
+    .header__nav-link:active {
+        background-color: #2d2d2d;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header {
+        position: static;
+    }
+
+    .main-content {
+        margin-top: 0;
+    }
+}
+.btn-set{
+    margin-top:5px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.slider{
+    height: 500px;
+    width: 100%;
+    border: 2px solid black;
+    position: relative;
+    top: 200px;
+}
+.slide{
+    height: 200px;
+    width: 200px;
+    border:1px solid black;
+    border-radius: 15px;
+}
+.slide img{
+    height: 100%;
+    width: 100%;
+    
+}
