@@ -1,0 +1,27 @@
+#para1{
+    text-align: center;
+    background-color: red;
+    color: black;
+font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+}
+.main-container{
+opacity: 0;
+word-spacing: 10px;
+    font-size: medium;
+    background-image: url(https://wallpapercave.com/wp/wp9474025.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-container::first-letter{
+    font-size: x-large;
+    color: red;
+}         
+/* .main-container:hover{
+    font-weight: 600;    
+    opacity: 0.5;
+} */
+div #h44{
+    color: blue;
+    text-decoration:line-through;
+ }
