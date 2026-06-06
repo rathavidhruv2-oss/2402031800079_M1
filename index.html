@@ -1,13 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>practice_pro</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Bakery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-icon">🍰</span>
+        <div>
+          <h1>Sweet Bakery</h1>
+          <p>Fresh baked with love every day.</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Home of simple, delicious treats.</h2>
+        <p>Warm cakes, soft bread, and sweet pastries made fresh every morning.</p>
+        <div class="hero-buttons">
+          <a class="primary-button" href="#menu">View Our Menu</a>
+          <button class="secondary-button" onclick="showOrderMessage('Sweet Bakery treats')">Order Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section light">
+      <div class="container">
+        <h2>About Sweet Bakery</h2>
+        <p>We bake every item with natural ingredients and a touch of care. Whether you want a morning pastry or a celebration cake, we keep it simple and delightful.</p>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <h2>Our Favorite Treats</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon">🎂</div>
+            <h3>Chocolate Cake</h3>
+            <p>Rich layers of chocolate and cream.</p>
+            <button class="card-btn" onclick="showOrderMessage('Chocolate Cake')">Order</button>
+          </article>
+          <article class="card">
+            <div class="card-icon">🥐</div>
+            <h3>Butter Croissant</h3>
+            <p>Flaky, warm, and perfectly buttery.</p>
+            <button class="card-btn" onclick="showOrderMessage('Butter Croissant')">Order</button>
+          </article>
+          <article class="card">
+            <div class="card-icon">🍪</div>
+            <h3>Cookie Box</h3>
+            <p>Crispy chocolate chip cookies.</p>
+            <button class="card-btn" onclick="showOrderMessage('Cookie Box')">Order</button>
+          </article>
+          <article class="card">
+            <div class="card-icon">🍞</div>
+            <h3>Fresh Bread</h3>
+            <p>Soft bread baked daily.</p>
+            <button class="card-btn" onclick="showOrderMessage('Fresh Bread')">Order</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section light">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+          <div>
+            <p><strong>Address</strong><br>ISCON, Ahmedabad</p>
+            <p><strong>Phone</strong><br>+91 98765 43210</p>
+            <p><strong>Email</strong><br>info@sweetbakery.com</p>
+          </div>
+          <div>
+            <p><strong>Opening Hours</strong><br>Mon - Sat, 7am - 9pm</p>
+            <p>Drop by for fresh bread, cakes, and a warm welcome.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>  <footer class="site-footer">
+    <div class="container">
+      <p>Sweet Bakery � Simple bakery website</p>
+      <p>� <span id="year"></span> Sweet Bakery</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
