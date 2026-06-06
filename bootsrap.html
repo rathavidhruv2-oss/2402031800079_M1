@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShoeStore</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #111, #444);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #dc3545;
+    }
+
+    .footer {
+      background: #212529;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        ShoeStore
+        <span class="badge bg-danger ms-2" id="cart-count">0</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Step Into Style</h1>
+      <p>Discover the latest and most comfortable shoes for every occasion.</p>
+      <a href="#products" class="btn btn-danger btn-lg mt-3">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Featured Shoes</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" class="card-img-top" alt="Red Sneakers">
+            <div class="card-body text-center">
+              <h5 class="card-title">Red Runner</h5>
+              <p class="card-text">Comfortable running shoes for everyday wear.</p>
+              <p class="price">$59.99</p>
+              <button class="btn btn-dark btn-buy" data-product="Red Runner">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800" class="card-img-top" alt="White Sneakers">
+            <div class="card-body text-center">
+              <h5 class="card-title">White Classic</h5>
+              <p class="card-text">Stylish sneakers that match every outfit.</p>
+              <p class="price">$74.99</p>
+              <button class="btn btn-dark btn-buy" data-product="White Classic">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800" class="card-img-top" alt="Black Shoes">
+            <div class="card-body text-center">
+              <h5 class="card-title">Black Street</h5>
+              <p class="card-text">Trendy streetwear shoes with premium comfort.</p>
+              <p class="price">$89.99</p>
+              <button class="btn btn-dark btn-buy" data-product="Black Street">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="cart-toast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Added to cart.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3">About Us</h2>
+      <p class="mx-auto" style="max-width: 700px;">
+        At ShoeStore, we believe the right pair of shoes can change your day.
+        We bring you trendy, durable, and comfortable footwear at affordable prices.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div id="form-alert"></div>
+          <form id="contact-form">
+            <div class="mb-3">
+              <input name="name" type="text" class="form-control" placeholder="Your Name" />
+            </div>
+            <div class="mb-3">
+              <input name="email" type="email" class="form-control" placeholder="Your Email" />
+            </div>
+            <div class="mb-3">
+              <textarea name="message" class="form-control" rows="4" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 ShoeStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const cartCountEl = document.getElementById('cart-count');
+    const toastEl = document.getElementById('cart-toast');
+    const cartToast = new bootstrap.Toast(toastEl);
+    let cartCount = 0;
+
+    function updateCartCount() {
+      cartCountEl.textContent = cartCount;
+    }
+
+    document.querySelectorAll('.btn-buy').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productName = button.dataset.product || 'Item';
+        cartCount += 1;
+        updateCartCount();
+        toastEl.querySelector('.toast-body').textContent = `${productName} added to cart.`;
+        cartToast.show();
+      });
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = formData.get('name').trim();
+      const email = formData.get('email').trim();
+      const message = formData.get('message').trim();
+
+      if (!name || !email || !message) {
+        showFormAlert('Please fill in all fields before sending your message.', 'danger');
+        return;
+      }
+
+      showFormAlert('Thanks for your message! We will get back to you shortly.', 'success');
+      contactForm.reset();
+    });
+
+    function showFormAlert(message, type) {
+      const container = document.getElementById('form-alert');
+      container.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
