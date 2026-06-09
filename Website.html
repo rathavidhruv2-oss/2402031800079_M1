@@ -1,104 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweet Bakery</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bakery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <span class="brand-icon">🍰</span>
-        <div>
-          <h1>Sweet Bakery</h1>
-          <p>Fresh baked with love every day.</p>
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+<div id="loginScreen">
+    <div class="login-page-wrap">
+
+        <!-- Left branding -->
+        <div class="login-left">
+            <div class="login-left-inner">
+                <div class="login-brand-logo">🍰</div>
+                <h1>Sweet Bakery</h1>
+                <p>Fresh baked with love every day.</p>
+                <div class="login-features">
+                    <div class="lf-item"><span>🌿</span> Natural Ingredients</div>
+                    <div class="lf-item"><span>❤️</span> Made with Love</div>
+                    <div class="lf-item"><span>🚚</span> Home Delivery</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+        <!-- Right form -->
+        <div class="login-right">
+            <div class="login-card">
+                <div class="login-card-header">
+                    <div class="lc-logo">🍰</div>
+                    <h2>Welcome Back!</h2>
+                    <p>Enter your credentials and choose login type</p>
+                </div>
+                <div class="lc-body">
+                    <label>Username</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="loginUser" placeholder="Enter username">
+                    </div>
+                    <label>Password</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="loginPass" placeholder="Enter password">
+                    </div>
+                    <p id="loginErr" class="error-msg" style="display:none;"></p>
+                    <p class="choose-label">Choose Login Type:</p>
+                    <div class="login-btn-group">
+                        <button class="login-btn-bakery" onclick="doLogin('admin')">
+                            <span class="lbtn-icon">🏪</span>
+                            <span class="lbtn-text">
+                                <strong>Bakery Login</strong>
+                                <small>Admin Panel</small>
+                            </span>
+                        </button>
+                        <button class="login-btn-customer" onclick="doLogin('customer')">
+                            <span class="lbtn-icon">👤</span>
+                            <span class="lbtn-text">
+                                <strong>Customer Login</strong>
+                                <small>Shop &amp; Orders</small>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="hint-box">
+                        <p>🏪 <strong>Admin:</strong> admin / admin123</p>
+                        <p>👤 <strong>Customer 1:</strong> dhruv / dhruv123</p>
+                        <p>👤 <strong>Customer 2:</strong> riya / riya123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </header>
+</div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Home of simple, delicious treats.</h2>
-        <p>Warm cakes, soft bread, and sweet pastries made fresh every morning.</p>
-        <div class="hero-buttons">
-          <a class="primary-button" href="#menu">View Our Menu</a>
-          <button class="secondary-button" onclick="showOrderMessage('Sweet Bakery treats')">Order Now</button>
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+<div id="adminPanel" style="display:none;">
+
+    <nav>
+        <div class="nav-brand">🏪 Sweet Bakery</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="adminPage('adminHome')">🏠 Home</a></li>
+            <li><a href="#" onclick="adminPage('adminProducts')">📦 Products</a></li>
+            <li><a href="#" onclick="adminPage('adminOrders')">🧾 Orders</a></li>
+            <li><a href="#" onclick="adminPage('adminCustomers')">👥 Customers</a></li>
+            <li><a href="#" onclick="adminPage('adminContact')">📍 Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="nav-name">👋 Admin</span>
+            <a href="#" onclick="doLogout()" class="nav-logout-btn">Logout</a>
         </div>
-      </div>
-    </section>
+    </nav>
 
-    <section id="about" class="section light">
-      <div class="container">
-        <h2>About Sweet Bakery</h2>
-        <p>We bake every item with natural ingredients and a touch of care. Whether you want a morning pastry or a celebration cake, we keep it simple and delightful.</p>
-      </div>
-    </section>
-
-    <section id="menu" class="section">
-      <div class="container">
-        <h2>Our Favorite Treats</h2>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-icon">🎂</div>
-            <h3>Chocolate Cake</h3>
-            <p>Rich layers of chocolate and cream.</p>
-            <button class="card-btn" onclick="showOrderMessage('Chocolate Cake')">Order</button>
-          </article>
-          <article class="card">
-            <div class="card-icon">🥐</div>
-            <h3>Butter Croissant</h3>
-            <p>Flaky, warm, and perfectly buttery.</p>
-            <button class="card-btn" onclick="showOrderMessage('Butter Croissant')">Order</button>
-          </article>
-          <article class="card">
-            <div class="card-icon">🍪</div>
-            <h3>Cookie Box</h3>
-            <p>Crispy chocolate chip cookies.</p>
-            <button class="card-btn" onclick="showOrderMessage('Cookie Box')">Order</button>
-          </article>
-          <article class="card">
-            <div class="card-icon">🍞</div>
-            <h3>Fresh Bread</h3>
-            <p>Soft bread baked daily.</p>
-            <button class="card-btn" onclick="showOrderMessage('Fresh Bread')">Order</button>
-          </article>
+    <!-- ADMIN HOME -->
+    <div id="adminHome" class="apage">
+        <div class="hero">
+            <div class="hero-text">
+                <h2>Welcome, Admin! 👋</h2>
+                <p>Manage your bakery from one place.</p>
+                <button onclick="adminPage('adminOrders')">📦 View Orders</button>
+            </div>
+            <div class="hero-icon">🍰</div>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section light">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <div class="contact-grid">
-          <div>
-            <p><strong>Address</strong><br>ISCON, Ahmedabad</p>
-            <p><strong>Phone</strong><br>+91 98765 43210</p>
-            <p><strong>Email</strong><br>info@sweetbakery.com</p>
-          </div>
-          <div>
-            <p><strong>Opening Hours</strong><br>Mon - Sat, 7am - 9pm</p>
-            <p>Drop by for fresh bread, cakes, and a warm welcome.</p>
-          </div>
+        <div class="section">
+            <h2 class="section-title">Dashboard Summary</h2>
+            <div class="kpi-row" id="adminKpi"></div>
         </div>
-      </div>
-    </section>
-  </main>
-  <div id="toast" class="toast"></div>  <footer class="site-footer">
-    <div class="container">
-      <p>Sweet Bakery � Simple bakery website</p>
-      <p>� <span id="year"></span> Sweet Bakery</p>
+        <div class="section">
+            <h2 class="section-title">Best Sellers</h2>
+            <div class="product-grid" id="adminHomeProd"></div>
+        </div>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- ADMIN PRODUCTS -->
+    <div id="adminProducts" class="apage" style="display:none;">
+        <div class="page-top">
+            <h2>📦 Products</h2>
+            <button onclick="openProdForm()">+ Add Product</button>
+        </div>
+        <div class="filter-bar">
+            <input type="text" id="prodSearch" placeholder="Search..." onkeyup="renderAdminProducts()">
+            <select id="prodCatFilter" onchange="renderAdminProducts()">
+                <option value="">All Categories</option>
+                <option>Cakes</option><option>Bread</option>
+                <option>Pastries</option><option>Cookies</option><option>Muffins</option>
+            </select>
+        </div>
+        <div class="product-grid" id="adminProdGrid"></div>
+        <div id="prodForm" class="form-card" style="display:none;">
+            <div class="form-card-title" id="prodFormTitle">Add Product</div>
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="pName" placeholder="e.g. Chocolate Cake">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="pCat">
+                        <option>Cakes</option><option>Bread</option>
+                        <option>Pastries</option><option>Cookies</option><option>Muffins</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="pPrice" placeholder="250">
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" id="pStock" placeholder="20">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="pDesc" rows="2" placeholder="Short description..."></textarea>
+            </div>
+            <div class="form-btns">
+                <button onclick="saveProd()">💾 Save</button>
+                <button class="btn-cancel" onclick="closeProdForm()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN ORDERS -->
+    <div id="adminOrders" class="apage" style="display:none;">
+        <div class="page-top">
+            <h2>🧾 Orders</h2>
+            <button onclick="openOrderForm()">+ New Order</button>
+        </div>
+        <div class="kpi-row" id="orderKpi"></div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th><th>Customer</th><th>Product</th>
+                        <th>Qty</th><th>Total</th><th>Status</th><th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableBody"></tbody>
+            </table>
+        </div>
+        <!-- Order Form -->
+        <div id="orderForm" class="form-card" style="display:none;">
+            <div class="form-card-title">New Order</div>
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label>Select Product</label>
+                    <select id="oProd" onchange="calcOrderTotal()"></select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" id="oQty" value="1" min="1" onchange="calcOrderTotal()">
+                </div>
+            </div>
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label>Total</label>
+                    <input type="text" id="oTotal" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="oStatus">
+                        <option>Pending</option>
+                        <option>Accepted</option>
+                        <option>Delivered</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-btns">
+                <button onclick="saveAdminOrder()">💾 Place Order</button>
+                <button class="btn-cancel" onclick="closeOrderForm()">Cancel</button>
+            </div>
+        </div>
+        <!-- Bill -->
+        <div id="billWrap" style="display:none;">
+            <div id="billContent" class="bill-box"></div>
+            <div class="form-btns" style="margin:0 0 30px;">
+                <button onclick="printBill('billContent')">🖨️ Print</button>
+                <button class="btn-cancel" onclick="document.getElementById('billWrap').style.display='none'">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN CUSTOMERS -->
+    <div id="adminCustomers" class="apage" style="display:none;">
+        <div class="page-top">
+            <h2>👥 Customers</h2>
+            <button onclick="openCustForm()">+ Add Customer</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="custTableBody"></tbody>
+            </table>
+        </div>
+        <div id="custForm" class="form-card" style="display:none;">
+            <div class="form-card-title" id="custFormTitle">Add Customer</div>
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="cName" placeholder="Customer name">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" id="cPhone" placeholder="Phone number">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="cEmail" placeholder="Email address">
+            </div>
+            <div class="form-btns">
+                <button onclick="saveCust()">💾 Save</button>
+                <button class="btn-cancel" onclick="closeCustForm()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN CONTACT -->
+    <div id="adminContact" class="apage" style="display:none;">
+        <div class="section">
+            <h2 class="section-title">📍 Contact & Info</h2>
+            <div class="contact-wrap">
+                <div class="contact-form-box">
+                    <h3>Send a Message</h3>
+                    <div class="form-group"><label>Name</label><input type="text" id="msgName" placeholder="Your name"></div>
+                    <div class="form-group"><label>Email</label><input type="email" id="msgEmail" placeholder="your@email.com"></div>
+                    <div class="form-group"><label>Message</label><textarea id="msgText" rows="4" placeholder="Your message..."></textarea></div>
+                    <button onclick="sendMsg()" style="margin-top:10px;">Send Message</button>
+                    <p id="msgOk" style="display:none;color:#1565c0;margin-top:10px;font-weight:600;">✅ Sent successfully!</p>
+                </div>
+                <div class="contact-info-box">
+                    <h3>Bakery Details</h3>
+                    <p>📍 12 Baker Street, Delhi - 110001</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>📧 info@sweetbakery.com</p>
+                    <p>🕐 Mon–Sat: 7am – 9pm</p>
+                    <div class="map-box">🗺️ 12 Baker Street, Delhi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end adminPanel -->
+
+<!-- =====================================================
+     CUSTOMER PANEL
+===================================================== -->
+<div id="customerPanel" style="display:none;">
+
+    <nav>
+        <div class="nav-brand">🍰 Sweet Bakery</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="custPage('custDash')">🏠 Dashboard</a></li>
+            <li><a href="#" onclick="custPage('custShop')">🛍️ Shop</a></li>
+            <li><a href="#" onclick="custPage('custOrders')">📋 My Orders</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="nav-name" id="custNavName">👋 Hello</span>
+            <a href="#" onclick="doLogout()" class="nav-logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- CUSTOMER DASHBOARD -->
+    <div id="custDash" class="cpage">
+        <div class="cust-dash-hero">
+            <div class="cdh-left">
+                <div class="cdh-avatar" id="custAvatar">D</div>
+                <div>
+                    <h2 id="custDashName">Hello, Dhruv! 👋</h2>
+                    <p>Welcome back to Sweet Bakery</p>
+                </div>
+            </div>
+            <button class="cdh-shop-btn" onclick="custPage('custShop')">🛍️ Start Shopping</button>
+        </div>
+        <div class="cust-stats-row" id="custStats"></div>
+        <div class="section">
+            <h2 class="section-title">📋 Recent Orders</h2>
+            <div id="custRecentOrders"></div>
+        </div>
+        <div class="section dash-quick-shop">
+            <h2 class="section-title">⭐ Featured Products</h2>
+            <div class="product-grid" id="custFeatured"></div>
+        </div>
+    </div>
+
+    <!-- CUSTOMER SHOP -->
+    <div id="custShop" class="cpage" style="display:none;">
+        <div class="page-top">
+            <h2>🛍️ Shop</h2>
+        </div>
+        <div class="filter-bar">
+            <input type="text" id="shopSearch" placeholder="Search products..." onkeyup="renderShop()">
+            <select id="shopCat" onchange="renderShop()">
+                <option value="">All Categories</option>
+                <option>Cakes</option><option>Bread</option>
+                <option>Pastries</option><option>Cookies</option><option>Muffins</option>
+            </select>
+        </div>
+        <div class="product-grid" id="shopGrid"></div>
+        <!-- Order form -->
+        <div id="custOrderForm" class="form-card" style="display:none; max-width:460px;">
+            <div class="form-card-title">🛒 Place Order</div>
+            <div class="form-group"><label>Product</label><input type="text" id="coProduct" readonly></div>
+            <div class="form-row-2">
+                <div class="form-group"><label>Price</label><input type="text" id="coPrice" readonly></div>
+                <div class="form-group"><label>Quantity</label><input type="number" id="coQty" value="1" min="1" onchange="calcCustTotal()"></div>
+            </div>
+            <div class="form-group"><label>Total Amount</label><input type="text" id="coTotal" readonly class="total-field"></div>
+            <div class="form-btns">
+                <button onclick="placeCustOrder()">✅ Confirm Order</button>
+                <button class="btn-cancel" onclick="document.getElementById('custOrderForm').style.display='none'">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOMER ORDERS -->
+    <div id="custOrders" class="cpage" style="display:none;">
+        <div class="page-top"><h2>📋 My Orders</h2></div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Order ID</th><th>Product</th><th>Qty</th><th>Total</th><th>Status</th><th>Bill</th></tr>
+                </thead>
+                <tbody id="custOrdersBody"></tbody>
+            </table>
+        </div>
+        <div id="custBillWrap" style="display:none;">
+            <div id="custBillContent" class="bill-box"></div>
+            <div class="form-btns" style="margin:0 0 30px;">
+                <button onclick="printBill('custBillContent')">🖨️ Print</button>
+                <button class="btn-cancel" onclick="document.getElementById('custBillWrap').style.display='none'">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end customerPanel -->
+
+<!-- Toast -->
+<div id="toast" class="toast" style="display:none;"><span id="toastMsg"></span></div>
+
+<script src="script.js"></script>
 </body>
 </html>
